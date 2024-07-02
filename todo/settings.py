@@ -143,5 +143,5 @@ if not DEBUG:    # Tell Django to copy static assets into a path called `staticf
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = ["*"]  
+CORS_ALLOWED_ORIGINS = ['https://todo-app-api-jw5c.onrender.com']  
 CORS_ALLOW_CREDENTIALS = True
