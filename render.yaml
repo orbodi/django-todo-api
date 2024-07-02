@@ -1,0 +1,22 @@
+databases:
+  - name: tododb
+    plan: free
+    databaseName: todo
+    user: postgres
+
+services:
+  - type: web
+    plan: free
+    name: todo-app-api
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn todo.asgi:application -k uvicorn.workers.UvicornWorker"    
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tododb
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
