@@ -27,9 +27,10 @@ SECRET_KEY = 'django-insecure-%--p6d$*lw0rv-#_*=@!hgx)7hb8nt$95p0vhn7t$-8@23l@n$
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = 'RENDER' not in os.environ
+#DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'https://todo-app-api-jw5c.onrender.com']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
@@ -86,14 +87,14 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-''''
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}'''
-
+}
+'''
 DATABASES = {
     'default': dj_database_url.config(
         default='postgresql://postgres:postgres@localhost:5432/todo', 
@@ -149,5 +150,4 @@ if not DEBUG:    # Tell Django to copy static assets into a path called `staticf
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = ['https://todo-app-api-jw5c.onrender.com']  
-CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True

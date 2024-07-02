@@ -105,6 +105,3 @@ class TaskDetail(generics.GenericAPIView):
 
 
 
-@api_view(['GET'])
-def hello_world(request):
-    return Response({"message": "Hello, world!"})
